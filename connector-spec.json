@@ -1,0 +1,54 @@
+{
+	"name": "sp-proofpoint_npre",
+	"ketType": "simple",
+	"commands": [
+		"std:account:list",
+		"std:account:read",
+		"std:test-connection"
+	],
+	"sourceConfig": [
+		{
+			"type": "section",
+			"items": [
+				{
+					"key": "client_id",
+					"label": "ProofPoint API ID",
+					"type": "text"
+				},
+				{
+					"key": "client_secret",
+					"label": "ProofPoint API Secret",
+					"type": "text"
+				}
+			]
+		}
+	],
+	"accountSchema":{
+		"displayAttribute": "id",
+		"identityAttribute": "email",
+		"groupAttribute": "entitlements",
+		"attributes":[
+			{
+				"name": "id",
+				"type": "string",
+				"description": "Unique identifier of the account"
+			},
+			{
+				"name": "username",
+				"type": "string",
+				"description": "Display name of the account"
+			},
+			{
+				"name": "email",
+				"type": "string",
+				"description": "Email address of the account"
+			},
+			{
+				"name": "riskScore",
+				"type": "number",
+				"description": "Risk Score of the account"
+			}
+		]
+	},
+  "entitlementSchemas": []
+}
