@@ -3,10 +3,7 @@ import {
     createConnector,
     readConfig,
     Response,
-    logger,
     StdAccountListOutput,
-    StdAccountReadInput,
-    StdAccountReadOutput,
     StdTestConnectionOutput,
 } from '@sailpoint/connector-sdk'
 import { ProofpointClient } from './proofpoint-client'
@@ -16,7 +13,7 @@ import {Util} from "./util";
 export const connector = async () => {
 
     // Get connector source config
-    const config = await readConfig()
+    const config = await readConfig();
 
     // Use the vendor SDK, or implement own client as necessary, to initialize a client
     const proofpointClient = new ProofpointClient(config);
@@ -28,7 +25,7 @@ export const connector = async () => {
             console.log("Running test connection");
             await proofpointClient.testConnection();
         })
-    
+
         .stdAccountList(async (context: Context, input: undefined, res: Response<StdAccountListOutput>) => {
             console.log('listing accounts')
             const users = await proofpointClient.getAllUsers();
@@ -36,19 +33,4 @@ export const connector = async () => {
                 res.send(util.userToAccount(user))
             }
         })
-        // .stdAccountRead(async (context: Context, input: StdAccountReadInput, res: Response<StdAccountReadOutput>) => {
-        //     const account = await myClient.getAccount(input.identity)
-        //
-        //     res.send({
-        //         identity: account.username,
-        //         uuid: account.id,
-        //         attributes: {
-        //             firstName: account.firstName,
-        //             lastName: account.lastName,
-        //             email: account.email,
-        //         },
-        //     })
-        //     logger.info(`stdAccountRead read account : ${input.identity}`)
-        //
-        // })
 }

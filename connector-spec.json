@@ -1,42 +1,42 @@
 {
-	"name": "sp-proofpoint_npre",
-	"ketType": "simple",
+	"name": "proofpoint_npre-poc",
 	"commands": [
 		"std:account:list",
-		"std:account:read",
 		"std:test-connection"
 	],
 	"sourceConfig": [
 		{
 			"type": "section",
+			"sectionTitle": "Proofpoint Demo",
 			"items": [
 				{
-					"key": "client_id",
+					"key": "clientId",
 					"label": "ProofPoint API ID",
-					"type": "text"
+					"type": "text",
+					"required": true
 				},
 				{
-					"key": "client_secret",
+					"key": "clientSecret",
 					"label": "ProofPoint API Secret",
-					"type": "text"
+					"type": "text",
+					"required": true
 				}
 			]
 		}
 	],
-	"accountSchema":{
-		"displayAttribute": "id",
-		"identityAttribute": "email",
-		"groupAttribute": "entitlements",
-		"attributes":[
-			{
-				"name": "id",
-				"type": "string",
-				"description": "Unique identifier of the account"
-			},
+	"accountSchema": {
+		"displayAttribute": "username",
+		"identityAttribute": "id",
+		"attributes": [
 			{
 				"name": "username",
 				"type": "string",
 				"description": "Display name of the account"
+			},
+			{
+				"name": "id",
+				"type": "string",
+				"description": "Unique identifier of the account"
 			},
 			{
 				"name": "email",
@@ -44,11 +44,25 @@
 				"description": "Email address of the account"
 			},
 			{
-				"name": "riskScore",
-				"type": "number",
+				"name": "risk",
+				"type": "int",
 				"description": "Risk Score of the account"
+			},
+			{
+				"name": "vulnerablerisk",
+				"type": "int",
+				"description": "Vulnerable Risk Score of the account"
+			},
+			{
+				"name": "privilegedrisk",
+				"type": "int",
+				"description": "Priviledged Risk Score of the account"
+			},
+			{
+				"name": "attackedrisk",
+				"type": "int",
+				"description": "Attacked Risk Score of the account"
 			}
 		]
-	},
-  "entitlementSchemas": []
+	}
 }

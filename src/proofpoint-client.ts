@@ -35,24 +35,21 @@ export class ProofpointClient {
         console.log("Result is" + accessToken);
 
         incomingFilePath = await getFilePath();
-        console.log("File Path is: " + incomingFilePath);
 
         const response = await axios.get(incomingFilePath.toString());
-        //console.log(response.data)
-        console.log("In get Users " +  typeof response.data);
-        
+
         var split_Data = response.data.split('\n');
         split_Data = split_Data.splice(0,split_Data.length-1);
-        var records = split_Data.map(function (record) {
-             return JSON.parse(record)
+        var records = split_Data.map(function (record: any) {
+            return JSON.parse(record)
         });
 
         const recordArray: Array<User> = [];
-        
+
         for(const record of records){
-           recordArray.push(record)
+            recordArray.push(record)
         }
-        
+
         return recordArray;
     }
 
@@ -79,7 +76,7 @@ async function getFilePath() {
         data: data
     };
 
-     return axios(config)
+    return axios(config)
         .then(response =>
             response.data['data']['getPeopleGroups']['file']
         )
