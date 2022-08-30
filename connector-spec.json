@@ -1,5 +1,5 @@
 {
-	"name": "proofpoint_npre-poc",
+	"name": "Proofpoint Risk Connector",
 	"commands": [
 		"std:account:list",
 		"std:test-connection"
@@ -64,5 +64,6 @@
 				"description": "Attacked Risk Score of the account"
 			}
 		]
-	}
+	},
+	"entitlementSchemas": []
 }

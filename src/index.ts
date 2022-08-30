@@ -1,6 +1,6 @@
 import {
     Context,
-    createConnector,
+    createConnector, logger,
     readConfig,
     Response,
     StdAccountListOutput,
@@ -22,8 +22,8 @@ export const connector = async () => {
 
     return createConnector()
         .stdTestConnection(async (context: Context, input: undefined, res: Response<StdTestConnectionOutput>) => {
-            console.log("Running test connection");
-            await proofpointClient.testConnection();
+            logger.debug("Running test connection");
+            res.send(await proofpointClient.testConnection());
         })
 
         .stdAccountList(async (context: Context, input: undefined, res: Response<StdAccountListOutput>) => {

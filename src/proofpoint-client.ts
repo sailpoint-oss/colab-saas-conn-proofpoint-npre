@@ -2,6 +2,7 @@ import {Config} from "./model/config";
 import qs from "qs";
 import axios, {AxiosResponse} from "axios";
 import {User} from "./model/user";
+import {ConnectorError, logger, StdTestConnectionOutput} from "@sailpoint/connector-sdk";
 
 const tokenAPI = "https://auth.proofpoint.com/v1/token";
 let accessToken: AxiosResponse<String> | void;
@@ -24,10 +25,13 @@ export class ProofpointClient {
         }
     }
 
-    async testConnection() {
-        console.log("In Test Connection- Proofpoint client");
+    async testConnection(): Promise<StdTestConnectionOutput> {
+        logger.info("In Test Connection- Proofpoint client");
         accessToken = await getToken(tokenAPI, this.clientId, this.clientSecret);
-        console.log("Result is" + accessToken);
+        if(!accessToken){
+            throw new ConnectorError("Unable to connect to Proofpoint")
+        }
+        return {}
     }
 
     async getAllUsers(): Promise<Array<User>> {
