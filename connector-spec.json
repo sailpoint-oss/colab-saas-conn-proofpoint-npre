@@ -1,0 +1,69 @@
+{
+	"name": "Proofpoint Risk Connector",
+	"commands": [
+		"std:account:list",
+		"std:test-connection"
+	],
+	"sourceConfig": [
+		{
+			"type": "section",
+			"sectionTitle": "Proofpoint Demo",
+			"items": [
+				{
+					"key": "clientId",
+					"label": "ProofPoint API ID",
+					"type": "text",
+					"required": true
+				},
+				{
+					"key": "clientSecret",
+					"label": "ProofPoint API Secret",
+					"type": "text",
+					"required": true
+				}
+			]
+		}
+	],
+	"accountSchema": {
+		"displayAttribute": "username",
+		"identityAttribute": "id",
+		"attributes": [
+			{
+				"name": "username",
+				"type": "string",
+				"description": "Display name of the account"
+			},
+			{
+				"name": "id",
+				"type": "string",
+				"description": "Unique identifier of the account"
+			},
+			{
+				"name": "email",
+				"type": "string",
+				"description": "Email address of the account"
+			},
+			{
+				"name": "risk",
+				"type": "int",
+				"description": "Risk Score of the account"
+			},
+			{
+				"name": "vulnerablerisk",
+				"type": "int",
+				"description": "Vulnerable Risk Score of the account"
+			},
+			{
+				"name": "privilegedrisk",
+				"type": "int",
+				"description": "Priviledged Risk Score of the account"
+			},
+			{
+				"name": "attackedrisk",
+				"type": "int",
+				"description": "Attacked Risk Score of the account"
+			}
+		]
+	},
+	"entitlementSchemas": []
+}
