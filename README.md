@@ -13,7 +13,7 @@
 [contributors-url]:https://github.com/sailpoint-oss/colab-sp-proofpoint-npre-poc/graphs/contributors
 
 # ProofPoint NPRE POC
-[Explore the docs »](https://your-link-to-colab-topic-here)
+[Explore the docs »](https://developer.sailpoint.com/discuss/t/proofpoint-connector/18258)
 
 [New to the CoLab? Click here »](https://developer.sailpoint.com/discuss/t/about-the-sailpoint-developer-community-colab/11230)
 
@@ -38,4 +38,4 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 <!-- CONTACT -->
 ## Discuss
-[Click Here](https://developer.sailpoint.com/dicuss/tag/{tagName}) to discuss this tool with other users.
+[Click Here](https://developer.sailpoint.com/discuss/t/proofpoint-connector/18258) to discuss this tool with other users.
